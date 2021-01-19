@@ -4,7 +4,10 @@ import {
    Column,
    UpdateDateColumn,
    CreateDateColumn,
+   OneToMany,
 } from 'typeorm';
+
+import Escolaridade from './Escolaridade';
 
 @Entity('users')
 export default class User {
@@ -52,6 +55,9 @@ export default class User {
 
    @Column()
    password_reset_expires: Date;
+
+   @OneToMany(() => Escolaridade, escolaridade => escolaridade.user)
+   escolaridade: Escolaridade[];
 
    @CreateDateColumn()
    created_at: Date;
