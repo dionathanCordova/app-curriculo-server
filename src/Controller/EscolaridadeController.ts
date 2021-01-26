@@ -32,7 +32,6 @@ export default class EscolaridadeController{
          const createEscolaridadeService = new CreateEscolaridadeService();
          const createEscolaridade = await createEscolaridadeService.execute({escolaridade, user_id});
          
-         console.log(createEscolaridade);
          return response.json(createEscolaridade);
          
       } catch (error) {

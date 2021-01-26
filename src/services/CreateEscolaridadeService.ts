@@ -27,11 +27,11 @@ export default class CreateEscolaridadeService {
       var cadastro = true;
       escolaridade.map(esc => {
          const escolaridade = escolaridadeRepository.create({
-               instituto: esc.instituicao,
-               status: esc.situacao,
-               titulo: esc.curso,
-               user: findUser
-            });
+            instituto: esc.instituicao,
+            status: esc.situacao,
+            titulo: esc.curso,
+            user: findUser
+         });
 
          escolaridadeRepository.save(escolaridade).then(response => {
          }).catch(err => {

@@ -8,6 +8,7 @@ import {
 } from 'typeorm';
 
 import Escolaridade from './Escolaridade';
+import Experiencia from './Experiencia';
 
 @Entity('users')
 export default class User {
@@ -58,6 +59,9 @@ export default class User {
 
    @OneToMany(() => Escolaridade, escolaridade => escolaridade.user)
    escolaridade: Escolaridade[];
+
+   @OneToMany(() => Experiencia, experiencia => experiencia.user)
+   experiencia: Experiencia[];
 
    @CreateDateColumn()
    created_at: Date;
