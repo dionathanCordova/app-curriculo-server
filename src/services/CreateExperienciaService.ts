@@ -1,6 +1,7 @@
 import { getRepository } from "typeorm";
 import User from "../models/UserModel";
 import ExperienciaModel from "../models/Experiencia";
+import Profissoes from "../models/Profissoes";
 
 interface ExperienciaProps {
    experiencia: {
@@ -14,16 +15,24 @@ interface ExperienciaProps {
       atual?: boolean;
    }[];
    user_id: string;
+   profissao_id: string
 }
 
 export default class ExperienciaService {
-   public async execute({experiencia, user_id}:ExperienciaProps): Promise<any> {
+   public async execute({experiencia, user_id, profissao_id}:ExperienciaProps): Promise<any> {
 
       const userRepository = getRepository(User);
       const findUser = await userRepository.findOne({ where: { id: user_id } });
 
       if (!findUser) {
          throw new Error('User does not exists')
+      }
+
+      const profissaoRepository = getRepository(Profissoes);
+      const profissao = await profissaoRepository.findOne({where: {id: profissao_id}})
+
+      if(!profissao) {
+         throw new Error('Profissao does not exists')
       }
 
       const experienciaRepository = getRepository(ExperienciaModel);
@@ -39,7 +48,8 @@ export default class ExperienciaService {
             data_inicio: exp.data_inicio,
             atual: exp.atual,
             ferramentas: exp.ferramentas,
-            user: findUser
+            user: findUser,
+            profissao
          });
 
          experienciaRepository.save(experiencia).then(response => {

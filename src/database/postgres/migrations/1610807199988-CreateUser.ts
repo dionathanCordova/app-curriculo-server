@@ -84,7 +84,7 @@ export class CreateUser1610807199988 implements MigrationInterface {
                },
                {
                   name: 'last_login',
-                  type: 'timestamp with time zone',
+                  type: 'timestamp',
                   isNullable: true,
                },
                {

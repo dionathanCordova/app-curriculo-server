@@ -23,6 +23,7 @@ export default class AuthenticateController{
             estado: userData.estado,
             bairro: userData.bairro,
             password: userData.password,
+            profissoes: userData.profissoes
          };
 
          return response.status(200).json({user, token, status: 'ok', statusCode: 200});

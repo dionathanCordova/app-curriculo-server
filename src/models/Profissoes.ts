@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import User from "./UserModel";
 
 @Entity('profissoes')
 export default class Profissoes {
@@ -10,6 +11,13 @@ export default class Profissoes {
 
    @Column()
    icon_path: string;
+
+   // @Column()
+   // user_id: string;
+
+   // @ManyToOne(() => User, user => user.experiencia)
+   // @JoinColumn({name: 'user_id'})
+   // user: User
 
    @CreateDateColumn()
    created_at: Date;

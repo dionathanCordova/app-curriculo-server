@@ -13,5 +13,6 @@ userRoutes.post('/create', userController.create);
 userRoutes.post('/find-by-id', userController.findById);
 userRoutes.post('/update/:id', userController.updateUser);
 userRoutes.patch('/avatar/:id', upload.single('avatar'), userController.updateAvatar);
+userRoutes.get('/profissao/:id', userController.getProfissoes);
 
 export default userRoutes;

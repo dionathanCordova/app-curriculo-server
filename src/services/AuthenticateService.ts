@@ -8,6 +8,11 @@ interface AuthData {
    password: string;
 }
 
+interface PofissaoProps {
+   id: string;
+   name: string;
+   icon_path: string;
+}
 interface IResponse {
    userData: {
       id: string,
@@ -23,6 +28,7 @@ interface IResponse {
       estado: string,
       bairro: string,
       password: string,
+      profissoes: PofissaoProps[]
    },
       token: string,
 }

@@ -6,9 +6,11 @@ import {
    CreateDateColumn,
    OneToMany,
 } from 'typeorm';
+import Curriculo from './Curriculos';
 
 import Escolaridade from './Escolaridade';
 import Experiencia from './Experiencia';
+import Profissoes from './Profissoes';
 
 @Entity('users')
 export default class User {
@@ -62,6 +64,9 @@ export default class User {
 
    @OneToMany(() => Experiencia, experiencia => experiencia.user)
    experiencia: Experiencia[];
+
+   @OneToMany(() => Profissoes, profissao => profissao.id)
+   profissoes: Profissoes[];
 
    @CreateDateColumn()
    created_at: Date;

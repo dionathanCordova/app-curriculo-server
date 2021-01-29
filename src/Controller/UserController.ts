@@ -20,6 +20,8 @@ export default class UserController {
       try {
          const { email, password } = request.body;
 
+         console.log(email, password);
+
          const createUserservice = new CreateUserService();
          const user = await createUserservice.execute({ email, password });
 
@@ -111,5 +113,14 @@ export default class UserController {
       } catch (error) {
          return response.status(400).json({ status: error.message })
       }
+   }
+
+   public async getProfissoes(request: Request, response: Response): Promise<Response> {
+      const { id } = request.params;
+
+      // const userProfissaoRepository = getRepository(UserProfissao);
+      // const userProfissao = await userProfissaoRepository.find();
+
+      return response.status(200).json(id);
    }
 }

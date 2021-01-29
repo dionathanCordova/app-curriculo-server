@@ -19,7 +19,7 @@ export default class CreateProfissoesService {
 
       const job = profissoesRepository.create({
          name,
-         icon_path
+         icon_path,
       })
 
       await profissoesRepository.save(job);

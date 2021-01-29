@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export default class CreateProfissoes1610814473015 implements MigrationInterface {
+export class CreateProfissoes1611836325838 implements MigrationInterface {
 
    public async up(queryRunner: QueryRunner): Promise<void> {
       await queryRunner.createTable(
@@ -32,7 +32,7 @@ export default class CreateProfissoes1610814473015 implements MigrationInterface
                   type: 'timestamp',
                   default: 'now()',
                },
-            ]
+            ],
          })
       )
    }
@@ -40,4 +40,5 @@ export default class CreateProfissoes1610814473015 implements MigrationInterface
    public async down(queryRunner: QueryRunner): Promise<void> {
       await queryRunner.dropTable('profissoes');
    }
+
 }
