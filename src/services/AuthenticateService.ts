@@ -53,8 +53,6 @@ export default class AuthService{
         expiresIn: '1d'
      })
 
-     console.log(userData);
-
      return {userData, token};
    }
 }

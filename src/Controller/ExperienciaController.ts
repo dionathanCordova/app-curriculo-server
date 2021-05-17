@@ -8,13 +8,12 @@ export default class ExperienciaController {
          const { user_id } = request.params;
          const { experiencia, profissao_id } = request.body;
 
-         // const experienciaService = new ExperienciaService();
-         // const createExperiencia = await experienciaService.execute({experiencia, user_id, profissao_id});
+         const experienciaService = new ExperienciaService();
+         const createExperiencia = await experienciaService.execute({experiencia, user_id, profissao_id});
 
          const curriculoService = new CreateCurriculoService();
          const createCurriculo = await curriculoService.execute({user_id, profissao_id});
 
-         console.log(createCurriculo);
          return response.json(createCurriculo);
       } catch (error) {
 

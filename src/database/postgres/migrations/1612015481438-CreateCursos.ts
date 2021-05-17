@@ -1,11 +1,11 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export default class CreateExperiencia1610814423489 implements MigrationInterface {
+export default class CreateCursos1612015481438 implements MigrationInterface {
 
    public async up(queryRunner: QueryRunner): Promise<void> {
       await queryRunner.createTable(
          new Table({
-            name: 'experiencia',
+            name: 'cursos',
             columns: [
                {
                   name: 'id',
@@ -14,41 +14,13 @@ export default class CreateExperiencia1610814423489 implements MigrationInterfac
                   isPrimary: true,
                   default: 'uuid_generate_v4()'
                },
-               {
+               {  
                   name: 'user_id',
                   type: 'uuid'
                },
                {
-                  name: 'cargo',
+                  name: 'nome',
                   type: 'varchar'
-               },
-               {
-                  name: 'empresa',
-                  type: 'varchar'
-               },
-               {
-                  name: 'atribuicoes',
-                  type: 'varchar'
-               },
-               {
-                  name: 'ferramentas',
-                  type: 'varchar'
-               },
-               {
-                  name: 'remuneracao',
-                  type: 'varchar'
-               },
-               {
-                  name: 'data_inicio',
-                  type: 'timestamp',
-               },
-               {
-                  name: 'data_fim',
-                  type: 'timestamp',
-               },
-               {
-                  name: 'atual',
-                  type: 'boolean'
                },
                {
                   name: 'created_at',
@@ -73,10 +45,10 @@ export default class CreateExperiencia1610814423489 implements MigrationInterfac
             ]
          })
       )
-   }
+    }
 
    public async down(queryRunner: QueryRunner): Promise<void> {
-      await queryRunner.dropTable('experiencia');
+      await queryRunner.dropTable('cursos');
    }
 
 }

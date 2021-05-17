@@ -6,6 +6,7 @@ import profissoesRouter from './profissoes.routes';
 import escolaridadeRouter from './escolaridade.routes';
 import experienciaRouter from './experiencia.routes';
 import curriculoRouter from './curriculos.routes';
+import cursosRouter from './cursos.routes';
 
 const routes = Router();
 
@@ -15,5 +16,6 @@ routes.use('/profissoes', profissoesRouter);
 routes.use('/escolaridade', escolaridadeRouter);
 routes.use('/experiencia', experienciaRouter);
 routes.use('/curriculo', curriculoRouter);
+routes.use('/cursos', cursosRouter);
 
 export default routes;

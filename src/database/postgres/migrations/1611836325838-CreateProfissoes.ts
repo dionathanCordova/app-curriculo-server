@@ -21,6 +21,7 @@ export class CreateProfissoes1611836325838 implements MigrationInterface {
                {
                   name: 'icon_path',
                   type: 'varchar',
+                  isNullable: true
                },
                {
                   name: 'created_at',
